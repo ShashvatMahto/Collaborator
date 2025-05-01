@@ -1,8 +1,9 @@
 import express from "express";
 import {Server} from "socket.io"
 import {createServer} from "http";
+import dotenv from "dotenv"
 
-
+dotenv.config();
 const app = express();
 
 const server = createServer(app);
@@ -24,11 +25,13 @@ io.on("connection" , (socket)=>{
   
 })
 
+const PORT = process.env.PORT || 4000
+
 app.get('/' , (req , res)=>{
   res.send("pong")
 })
 
-server.listen(8080 , ()=>{
+server.listen(PORT , ()=>{
   console.log('Server Started 🔥');
   
 })
