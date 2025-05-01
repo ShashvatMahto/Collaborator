@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css'
 import { io } from "socket.io-client"
-
-const socket = io('http://localhost:8080');
+const url = import.meta.env.VITE_BACKEND_URL
+const socket = io(url);
 function App() {
 
   const [text, settext] = useState("");
